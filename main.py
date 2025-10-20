@@ -2,12 +2,9 @@ import streamlit as st
 import pandas as pd 
 import numpy as np
 
-st.write("Hello world")
-
+st.title("Favorite Movies Collection ")
 x = st.text_input("What is your favorite movie?")
 
-st.write(f"Your favorite movie is {x}")
-st.title("Mortgage application")
 is_Clicked = st.button("Submit")
 
 if is_Clicked == True:
