@@ -51,7 +51,7 @@ if uploaded_file:
 
     
     
-    #api_key = st.secrets["OPENAI_API_KEY"]  # store in .streamlit/secrets.toml
+    
     #embeddings = OpenAIEmbeddings(openai_api_key=api_key)
 
     retriever = vectordb.as_retriever()
