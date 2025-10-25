@@ -44,14 +44,12 @@ if uploaded_file:
     
 
     api_key = st.secrets["OPENAI_API_KEY"]
-    #api_key="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"
     #embeddings = OpenAIEmbeddings()
     embeddings = OpenAIEmbeddings(openai_api_key=api_key)
 
     vectordb = Chroma.from_documents(docs, embedding=embeddings)
 
-    #os.environ['OPENAI_API_KEY'] = "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"
-
+    
     
     #api_key = st.secrets["OPENAI_API_KEY"]  # store in .streamlit/secrets.toml
     #embeddings = OpenAIEmbeddings(openai_api_key=api_key)
