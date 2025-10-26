@@ -1,10 +1,7 @@
-matplotlib
-streamlit
-pandas
 streamlit
 openai
 langchain==1.0.2
 langchain-community
 chromadb
 tiktoken
-
+langchain_openai
