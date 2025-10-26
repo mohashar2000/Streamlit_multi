@@ -13,11 +13,12 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_openai.embeddings import OpenAIEmbeddings
 import io
 import tempfile
+import openai
 from openai import OpenAI
 import os
 
 #Step 3: Streamlit UI
-st.title("Chatbot with RAG - Powered by LangChain + OpenAI")
+st.title("Chatbot with RAG - Powered by LangChain + OpenAI - ashraf")
 uploaded_file = st.file_uploader("📄 Upload a PDF file", type="pdf")
 
 print(uploaded_file)
@@ -43,16 +44,18 @@ if uploaded_file:
     docs = text_splitter.split_documents(documents)
     
 
-    OpenAI.api_key = st.secrets["OPENAI_API_KEY"]
+    api_key = st.secrets["OPENAI_API_KEY"]
     #embeddings = OpenAIEmbeddings()
-    embeddings = OpenAIEmbeddings(openai_api_key=OpenAI.api_key)
+    #print(api_key)
+    #st.write(api_key)
+    embeddings = OpenAIEmbeddings(openai_api_key=api_key)
 
     vectordb = Chroma.from_documents(docs, embedding=embeddings)
 
     
 
     retriever = vectordb.as_retriever()
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, openai_api_key=api_key )
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, openai_api_key=api_key)
     prompt = ChatPromptTemplate.from_template("""
     Answer the following question based only on the provided context:
     
