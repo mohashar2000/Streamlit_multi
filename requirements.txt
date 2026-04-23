@@ -7,3 +7,4 @@ tiktoken
 langchain_openai
 pypdf
 matplotlib
+faiss-cpu
