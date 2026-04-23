@@ -50,7 +50,10 @@ if uploaded_file:
     #st.write(api_key)
     embeddings = OpenAIEmbeddings(openai_api_key=api_key)
 
-    vectordb = Chroma.from_documents(docs, embedding=embeddings)
+    #vectordb = Chroma.from_documents(docs, embedding=embeddings)
+    # Replace this:
+    from langchain_community.vectorstores import FAISS
+    vectordb = FAISS.from_documents(docs, embedding=embeddings)
 
     
 
